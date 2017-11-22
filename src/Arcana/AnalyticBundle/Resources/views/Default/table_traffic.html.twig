@@ -1,0 +1,20 @@
+<div class="row inner-padding">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Full referrer</th>
+            <th class="span3 col-md-2">Sessions</th>
+            <th class="span3 col-md-2">% of all</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for referrerData in trafficData.data %}
+            <tr>
+                <td>{{ referrerData.fullReferrer }}</td>
+                <td class="span3 col-md-2">{{ referrerData.visits }}</td>
+                <td class="span3 col-md-2">{{ ((referrerData.visits / trafficData.totalVisits)*100)|round }} %</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

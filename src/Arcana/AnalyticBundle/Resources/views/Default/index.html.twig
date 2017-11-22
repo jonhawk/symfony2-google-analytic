@@ -1,0 +1,14 @@
+<form class="ga-form form-inline" action="{{ path('analytic_data') }}" style="width: 200px">
+    <div class="form-group">
+        <input name="ga-date" type="text" class="ga-datepicker form-control form-control" placeholder="Start date"/>
+        <input type="hidden" class="domain" value="{{ domain }}" />
+    </div>
+</form>
+<input type="hidden" id="request-link" value="{{ path('analytic_request') }}" />
+<input type="hidden" id="start-date"   value="{{ startDate }}" />
+<div class="result-block">
+    {{ include(
+    'ArcanaAnalyticBundle:Default:visitors.html.twig',
+    { 'visitChartData': visitChartData }
+    ) }}
+</div>

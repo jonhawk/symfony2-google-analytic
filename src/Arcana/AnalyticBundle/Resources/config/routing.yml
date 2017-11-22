@@ -1,0 +1,7 @@
+analytic_data:
+    pattern:  /analytic/data/{startDate}
+    defaults: { _controller: ArcanaAnalyticBundle:Default:index, startDate: null}
+analytic_request:
+    pattern: /analytic/request
+    defaults: { _controller: ArcanaAnalyticBundle:Default:request }
+    methods: [POST]

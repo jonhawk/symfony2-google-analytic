@@ -1,0 +1,20 @@
+<div class="row inner-padding">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Language</th>
+            <th class="span3 col-md-2">Sessions</th>
+            <th class="span3 col-md-2">% of all</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for langData in languageData.data %}
+            <tr>
+                <td>{{ langData.language }}</td>
+                <td class="span3 col-md-2">{{ langData.visits }}</td>
+                <td class="span3 col-md-2">{{ ((langData.visits / languageData.totalVisits)*100)|round }} %</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

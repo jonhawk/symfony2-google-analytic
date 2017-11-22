@@ -1,0 +1,56 @@
+<div class="row inner-padding">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Landing page</th>
+            <th class="span3 col-md-2">Sessions</th>
+            <th class="span3 col-md-2">% of all</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for landingPageData in pageTrackingData.landingData.data %}
+                <tr>
+                    <td>{{ landingPageData.page }}</td>
+                    <td class="span3 col-md-2">{{ landingPageData.visits }}</td>
+                    <td class="span3 col-md-2">{{ ((landingPageData.visits / pageTrackingData.landingData.totalVisits)*100)|round }} %</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Second page</th>
+            <th class="span3 col-md-2">Sessions</th>
+            <th class="span3 col-md-2">% of all</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for secondPageData in pageTrackingData.secondData.data %}
+                <tr>
+                    <td>{{ secondPageData.page }}</td>
+                    <td class="span3 col-md-2">{{ secondPageData.visits }}</td>
+                    <td class="span3 col-md-2">{{ ((secondPageData.visits / pageTrackingData.secondData.totalVisits)*100)|round }} %</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Exit page</th>
+            <th class="span3 col-md-2">Sessions</th>
+            <th class="span3 col-md-2">% of all</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for exitPageData in pageTrackingData.exitData.data %}
+                <tr>
+                    <td>{{ exitPageData.page }}</td>
+                    <td class="span3 col-md-2">{{ exitPageData.visits }}</td>
+                    <td class="span3 col-md-2">{{ ((exitPageData.visits / pageTrackingData.exitData.totalVisits)*100)|round }} %</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

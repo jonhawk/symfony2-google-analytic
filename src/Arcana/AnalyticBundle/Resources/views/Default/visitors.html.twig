@@ -1,0 +1,26 @@
+{% block javascripts %}
+    <script>
+        var detectInterval = setInterval(function() {
+            if(typeof(graphBuilder) !== 'undefined') {
+                clearInterval(detectInterval);
+                graphBuilder.addGraph(
+                        'graph',
+                        [{{ visitChartData | json_encode | raw }}]
+                )
+            }
+        }, 200);
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    {% stylesheets '@ArcanaAnalyticBundle/Resources/public/css/jquery.jqplot.css'
+    '@ArcanaAnalyticBundle/Resources/public/css/main.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+
+    {% endstylesheets %}
+{% endblock %}
+<div class="graph" id="graph"></div>
+{{ include(
+'ArcanaAnalyticBundle:Default:summary.html.twig',
+{ 'languageData': languageData }
+) }}

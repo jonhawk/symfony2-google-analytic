@@ -1,0 +1,100 @@
+<div class="well analytic-data">
+    <div class="summary row">
+        <div class="span3 col-md-2 visit-cell">
+            <div>
+                <div class="summary-title">
+                    Visits
+                </div>
+                <div class="summary-data analytics-value">
+                    {{ summary.visits|number_format(0, '.', ',')}}
+                </div>
+            </div>
+        </div>
+        <div class="span3 col-md-2 visit-cell">
+            <div>
+                <div class="summary-title">
+                    Unique Visitors
+                </div>
+                <div class="summary-data analytics-value">
+                    {{ summary.visitors|number_format(0, '.', ',') }}
+                </div>
+            </div>
+        </div>
+        <div class="span3 col-md-2 visit-cell">
+            <div>
+                <div class="summary-title">
+                    Pageviews
+                </div>
+                <div class="summary-data analytics-value">
+                    {{ summary.pageviews|number_format(0, '.', ',') }}
+                </div>
+            </div>
+        </div>
+        <div class="span3 col-md-2 visit-cell">
+            <div>
+                <div class="summary-title">
+                    Avg. Visit Duration
+                </div>
+                <div class="summary-data analytics-value">
+                    {{ summary.avgVisitTime }}
+                </div>
+            </div>
+        </div>
+        <div class="span3 col-md-2 visit-cell">
+            <div>
+                <div class="summary-title">
+                    Bounce rate
+                </div>
+                <div class="summary-data analytics-value">
+                    {{ summary.visitBounceRate|number_format(2, '.', ',') }}
+                </div>
+            </div>
+        </div>
+        <div class="span3 col-md-2 visit-cell">
+            <div>
+                <div class="summary-title">
+                    New Visits
+                </div>
+                <div class="summary-data analytics-value">
+                    {{ summary.percentNewVisits|number_format(2, '.', ',') }}%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#aa_languages" data-toggle="tab">Languages</a></li>
+        <li><a href="#aa_location" data-toggle="tab" class="aa_tab" data-request="location">Location</a></li>
+        <li><a href="#aa_system"   data-toggle="tab" class="aa_tab" data-request="system">System data</a></li>
+        <li><a href="#aa_traffic"  data-toggle="tab" class="aa_tab" data-request="traffic">Traffic data</a></li>
+        <li><a href="#aa_tracking" data-toggle="tab" class="aa_tab" data-request="tracking">Page tracking data</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane active" id="aa_languages">
+            <h3 class="text-center">Languages</h3>
+            {{ include(
+            'ArcanaAnalyticBundle:Default:table_languages.html.twig',
+            { 'languageData': languageData }
+            ) }}
+        </div>
+        <div class="tab-pane" id="aa_location">
+            <h3 class="text-center">Location</h3>
+            <div class="ajax-loader"></div>
+        </div>
+        <div class="tab-pane" id="aa_system">
+            <h3 class="text-center">System information</h3>
+            <div class="ajax-loader"></div>
+        </div>
+        <div class="tab-pane" id="aa_traffic">
+            <h3 class="text-center">Traffic information</h3>
+            <div class="ajax-loader"></div>
+        </div>
+        <div class="tab-pane" id="aa_tracking">
+            <h3 class="text-center">Page tracking information</h3>
+            <div class="ajax-loader"></div>
+        </div>
+    </div>
+</div>

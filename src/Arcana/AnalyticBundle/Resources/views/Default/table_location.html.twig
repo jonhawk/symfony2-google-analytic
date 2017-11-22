@@ -1,0 +1,23 @@
+<div class="row inner-padding">
+    {% for continent,continentData in geoData.data %}
+        <h4 class="small-title">{{ continent }} continent ({{ ((continentData.visits / geoData.totalVisits)*100)|round }} %)</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Country</th>
+                <th class="span3 col-md-2">Sessions</th>
+                <th class="span3 col-md-2">% of all</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for cData in continentData.countryData %}
+                <tr>
+                    <td>{{ cData.country }}</td>
+                    <td class="span3 col-md-2">{{ cData.visits }}</td>
+                    <td class="span3 col-md-2">{{ ((cData.visits / geoData.totalVisits)*100)|round }} %</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</div>

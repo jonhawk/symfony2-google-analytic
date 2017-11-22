@@ -1,0 +1,12 @@
+services:
+    arcana.code.analytic:
+        class:  Arcana\AnalyticBundle\Code\AnalyticCode
+        arguments: ["@service_container"]
+
+    arcana.twig.analytic_extension:
+        class:  Arcana\AnalyticBundle\Twig\AnalyticExtension
+        arguments: ["@arcana.code.analytic"]
+        tags:
+            - { name: twig.extension }
+    arcana.google.api:
+            class: Arcana\AnalyticBundle\Service\GoogleAPI

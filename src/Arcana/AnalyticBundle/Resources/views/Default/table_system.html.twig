@@ -1,0 +1,23 @@
+<div class="row inner-padding">
+    {% for operatingSystem,osData in technicalData.data %}
+        <h4 class="small-title">{{ operatingSystem }} ({{ ((osData.visits / technicalData.totalVisits)*100)|round }} %)</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Browser</th>
+                <th class="span3 col-md-2">Sessions</th>
+                <th class="span3 col-md-2">% of all</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for bData in osData.browserData %}
+                <tr>
+                    <td>{{ bData.browser }}</td>
+                    <td class="span3 col-md-2">{{ bData.visits }}</td>
+                    <td class="span3 col-md-2">{{ ((bData.visits / technicalData.totalVisits)*100)|round }} %</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</div>
